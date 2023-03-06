@@ -1,52 +1,33 @@
-API endpoints
-​
-Club routes
-Base URL /club
-​
-| HTTP Method | URL path    | Description                                |
-|-------------|-------------|--------------------------------------------|
-| GET         | /all        | Fetch all clubs                            |
-| GET         | /?sport=query  | Fetch all clubs by the type of sport       |
-| GET         | /details/:id        | Find a club by ID, details                 |
-| POST        | /create     | Create club                                |
-| PUT         | /edit/:id   | Edit club                                  |
-| DELETE      | /delete/:id | Delete club                                |
-​
-Field routes
-Base URL /fields
-​
-| HTTP Method | URL path    | Description                                |
-|-------------|-------------|--------------------------------------------|
-| GET         | /all        | Fetch all fields                           |
-| GET         | /?keyword=query | Fetch all fields by the keyword            |
-| GET         | /details/:id        | Find a field by ID, details                |
-| GET         | /club/:club_id   | Find all fields per club           |
-| POST        | /create     | Create field                               |
-| PUT         | /:id/edit   | Edit field                                 |
-| DELETE      | /:id/delete | Delete field                               |
-​
-Events routes
-Base URL /event
-​
-| HTTP Method | URL path    | Description                                |
-|-------------|-------------|--------------------------------------------|
-| GET         | all         | Fetch all events                           |
-| GET         | /${sport}   | Fetch all events by the type of sport      |
-| GET         | /:id        | Find a event by ID, details                |
-| GET         | /:user_id   | Find  all events by user id (participants) |
-| GET         | /:field_id  | Find all events by field id                |
-| GET         | /:owner_id  | Find all events by owner id                |
-| POST        | /create     | Create event                               |
-| PUT         | /:id/edit   | Edit event                                 |
-| PUT         | /:id/join   | Add player to event                        |
-| DELETE      | /:id/delete | Delete event                               |
-​
-​
-Auth routes
-Base URL /auth
-​
-| HTTP Method | URL path    | Description                                |
-|-------------|-------------|--------------------------------------------|
-| POST        | /register   | Sign up new user                           |
-| POST        | /login      | Login user                                 |
-| GET         | /verify     | Verify Auth token                          | 
+| HTTP Method  | URI path           | Description                 |
+|--------------|--------------------|-----------------------------|
+| CLUB Routes  |                    | Base URL /club              |
+| GET          | /all               | Fetch all clubs             |
+| GET          | /?sport=query      | Fetch all clubs by sport    |
+| GET          | /details/:club_id  | Club details                |
+| POST         | /create            | Create club                 |
+| PUT          | /edit/:club_id     | Edit club                   |
+| DELETE       | /delete/:club_id   | Delete club                 |
+
+| FIELD Routes |                    | Base URL /field             |
+| GET          | /all               | Fetch all fields            |
+| GET          | /?keyword=query    | Fetch all fields by keyword |
+| GET          | /?sport=query      | Fetch all fields by sport   |
+| GET          | /details/:field_id | Field details               |
+| GET          | /all/club_id       | Fetch all fields by club    |
+| POST         | /create            | Create field                |
+| PUT          | /edit/:field_id    | Edit field                  |
+| DELETE       | /delete/:field_id  | Delete field                |
+
+| EVENT Routes |                    | Base URL /event             |
+| GET          | /all               | Fetch all events            |
+| GET          | /?sport=query      | Fetch all fields by sport   |
+| GET          | /details/:event_id | Event details               |
+| GET          | /all/club_id       | Fetch all events by club    |
+| POST         | /create            | Create event                |
+| PUT          | /edit/:event_id    | Edit event                  |
+| DELETE       | /delete/:event_id  | Delete event                |
+
+| AUTH Routes  |                    | Base URL /auth              |
+| POST         | /register          | Register User               |
+| POST         | /login             | log in User                 |
+| GET          | /verify            | Verify Auth token           |

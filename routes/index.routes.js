@@ -10,5 +10,8 @@ router.use("/auth", authRoutes)
 const clubsRoutes = require("./club.routes")
 router.use("/clubs", clubsRoutes)
 
+const fieldsRoutes = require("./field.routes")
+router.use("/fields", fieldsRoutes)
+
 
 module.exports = router

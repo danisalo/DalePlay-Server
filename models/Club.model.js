@@ -6,7 +6,6 @@ const clubSchema = new Schema(
             type: String,
             required: [true, 'El nombre del club es obligatorio.']
         },
-
         description: {
             type: String,
             required: [true, 'La descripcion del club es obligatoria.']
