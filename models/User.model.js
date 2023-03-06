@@ -27,7 +27,7 @@ const userSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      required: [true, 'La imagen de perfil es obligatoria.'],
+      default: 'ffff.png'
     },
     role: {
       type: String,
