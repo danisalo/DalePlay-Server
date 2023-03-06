@@ -2,10 +2,10 @@ const { Schema, model } = require("mongoose")
 
 const fieldSchema = new Schema(
     {
-        sport: {
+        name: {
             type: String,
             required: [true, 'El deporte es obligatorio.'],
-            enum: ['Futbol5', 'Futbol7', 'Futbol11', 'Volleyball', 'Baloncesto3', 'Baloncesto5', 'Padel', 'Tennis']
+            enum: ['Futbol-5', 'Futbol-7', 'Futbol-11', 'Volleyball-6', 'Baloncesto-3', 'Baloncesto-5', 'Padel-2', 'Padel-4', 'Tennis-2', 'Tennis-4']
         },
         type: {
             type: String,
@@ -24,6 +24,14 @@ const fieldSchema = new Schema(
             type: String,
             required: [true, 'La imagen de la unidad deportiva es obligatoria.'],
         },
+        club: [{
+            ref: 'Club',
+            type: Schema.Types.ObjectId
+        }],
+        events: [{
+            ref: 'Event',
+            type: Schema.Types.ObjectId
+        }]
     },
     {
         timestamps: true

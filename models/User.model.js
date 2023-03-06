@@ -33,7 +33,11 @@ const userSchema = new Schema(
       type: String,
       enum: ['USER', 'OWNER', 'ADMIN'],
       default: 'USER'
-    }
+    },
+    events: [{
+      ref: 'Event',
+      type: Schema.Types.ObjectId
+    }]
   },
   {
     timestamps: true

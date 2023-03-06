@@ -6,11 +6,11 @@ Base URL /club
 | HTTP Method | URL path    | Description                                |
 |-------------|-------------|--------------------------------------------|
 | GET         | /all        | Fetch all clubs                            |
-| GET         | /${sport}   | Fetch all clubs by the type of sport       |
-| GET         | /:id        | Find a club by ID, details                 |
+| GET         | /?sport=query  | Fetch all clubs by the type of sport       |
+| GET         | /details/:id        | Find a club by ID, details                 |
 | POST        | /create     | Create club                                |
-| PUT         | /:id/edit   | Edit club                                  |
-| DELETE      | /:id/delete | Delete club                                |
+| PUT         | /edit/:id   | Edit club                                  |
+| DELETE      | /delete/:id | Delete club                                |
 ​
 Field routes
 Base URL /fields
@@ -18,9 +18,9 @@ Base URL /fields
 | HTTP Method | URL path    | Description                                |
 |-------------|-------------|--------------------------------------------|
 | GET         | /all        | Fetch all fields                           |
-| GET         | /${keyword} | Fetch all fields by the keyword            |
-| GET         | /:id        | Find a field by ID, details                |
-| GET         | /club/:club_id   | Find all fields by club id            |
+| GET         | /?keyword=query | Fetch all fields by the keyword            |
+| GET         | /details/:id        | Find a field by ID, details                |
+| GET         | /club/:club_id   | Find all fields per club           |
 | POST        | /create     | Create field                               |
 | PUT         | /:id/edit   | Edit field                                 |
 | DELETE      | /:id/delete | Delete field                               |
@@ -49,4 +49,4 @@ Base URL /auth
 |-------------|-------------|--------------------------------------------|
 | POST        | /register   | Sign up new user                           |
 | POST        | /login      | Login user                                 |
-| GET         | /verify     | Verify Auth token                          |
+| GET         | /verify     | Verify Auth token                          | 

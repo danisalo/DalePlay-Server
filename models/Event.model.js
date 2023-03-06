@@ -25,14 +25,14 @@ const eventSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User'
         }],
-        field: {
-            type: Schema.Types.ObjectId,
-            ref: 'Field'
-        },
-        // comments: {
-        //     type: String
-        //     ref:
-        // }
+        fields: [{
+            ref: 'Field',
+            type: Schema.Types.ObjectId
+        }],
+        chat: [{
+            ref: 'Chat',
+            type: Schema.Types.ObjectId
+        }]
     },
     {
         timestamps: true
