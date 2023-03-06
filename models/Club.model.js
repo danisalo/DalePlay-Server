@@ -9,7 +9,6 @@ const clubSchema = new Schema(
 
         description: {
             type: String,
-            required: [true, 'La descripcion del club es obligatoria.']
         },
         location: {
             type: {
@@ -24,6 +23,7 @@ const clubSchema = new Schema(
         imageUrl: {
             type: String,
             required: [true, 'La imagen de portada es obligatoria.'],
+            default: ""
         },
         fields: [{
             ref: 'Field',
@@ -31,6 +31,10 @@ const clubSchema = new Schema(
         }],
         events: [{
             ref: 'Event',
+            type: Schema.Types.ObjectId
+        }],
+        owner: [{
+            ref: 'User',
             type: Schema.Types.ObjectId
         }]
     },
