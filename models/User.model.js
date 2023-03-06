@@ -4,11 +4,13 @@ const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      required: [true, 'El nombre es obligatorio.']
+      default: '',
+
     },
     lastName: {
       type: String,
-      required: [true, 'El apellido es obligatorio.']
+      default: '',
+
     },
     username: {
       type: String,
@@ -27,7 +29,8 @@ const userSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      required: [true, 'La imagen de perfil es obligatoria.'],
+      default: 'ffff.png',
+
     },
     role: {
       type: String,

@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const Club = require('./../models/Club.model')
+const Club = require('../models/Club.model')
 
 router.get("/clubs", (req, res) => {
 
