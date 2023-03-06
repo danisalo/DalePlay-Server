@@ -4,11 +4,13 @@ const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      required: [true, 'El nombre es obligatorio.']
+      default: '',
+
     },
     lastName: {
       type: String,
-      required: [true, 'El apellido es obligatorio.']
+      default: '',
+
     },
     username: {
       type: String,
