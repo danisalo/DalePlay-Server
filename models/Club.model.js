@@ -15,10 +15,6 @@ const clubSchema = new Schema(
             },
             coordinates: [Number]
         },
-        fieldsId: {
-            type: Schema.Types.ObjectId,
-            ref: 'Field'
-        },
         imageUrl: {
             type: String,
             required: [true, 'La imagen de portada es obligatoria.'],
@@ -26,10 +22,6 @@ const clubSchema = new Schema(
         },
         fields: [{
             ref: 'Field',
-            type: Schema.Types.ObjectId
-        }],
-        events: [{
-            ref: 'Event',
             type: Schema.Types.ObjectId
         }],
         owner: [{
