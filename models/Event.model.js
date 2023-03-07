@@ -3,8 +3,8 @@ const { Schema, model } = require("mongoose")
 const eventSchema = new Schema(
     {
         host: {
-            type: String,
-            required: [true, 'Host is required.']
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         },
         name: {
             type: String,
@@ -25,11 +25,11 @@ const eventSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User'
         }],
-        fields: [{
+        field: {
             ref: 'Field',
             type: Schema.Types.ObjectId
-        }],
-        chat: [{
+        },
+        comments: [{
             ref: 'Chat',
             type: Schema.Types.ObjectId
         }]
