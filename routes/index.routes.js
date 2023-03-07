@@ -13,5 +13,8 @@ router.use("/clubs", clubsRoutes)
 const fieldsRoutes = require("./field.routes")
 router.use("/fields", fieldsRoutes)
 
+const eventsRoutes = require("./event.routes")
+router.use("/events", eventsRoutes)
+
 
 module.exports = router

@@ -22,8 +22,8 @@
 | GET          | /all               | Fetch all events            |
 | GET          | /?sport=query      | Fetch all fields by sport   |
 | GET          | /details/:event_id | Event details               |
-| GET          | /all/club_id       | Fetch all events by club    |
 | POST         | /create            | Create event                |
+| PUT          | /join/:event_id    | Join event                  |
 | PUT          | /edit/:event_id    | Edit event                  |
 | DELETE       | /delete/:event_id  | Delete event                |
 
