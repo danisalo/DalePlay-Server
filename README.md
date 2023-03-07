@@ -10,7 +10,6 @@
 
 | FIELD Routes |                    | Base URL /field             |
 | GET          | /all               | Fetch all fields            |
-| GET          | /?keyword=query    | Fetch all fields by keyword |
 | GET          | /?sport=query      | Fetch all fields by sport   |
 | GET          | /details/:field_id | Field details               |
 | GET          | /all/club_id       | Fetch all fields by club    |
