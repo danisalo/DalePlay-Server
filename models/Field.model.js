@@ -4,19 +4,17 @@ const fieldSchema = new Schema(
     {
         sport: {
             type: String,
-            // required: [true, 'El deporte es obligatorio.'],
+            required: [true, 'El deporte es obligatorio.'],
             enum: ['Futbol-5', 'Futbol-7', 'Futbol-11', 'Volleyball-6', 'Baloncesto-3', 'Baloncesto-5', 'Padel-2', 'Padel-4', 'Tennis-2', 'Tennis-4']
         },
-        type: {
-            type: String,
-            // required: [true, 'La unidad deportiva es obligatoria.'],
-            enum: ['PUBLIC', 'PRIVATE']
-        },
+        timeSlots: [{
+            type: String
+        }],
         hourlyPrice: {
             type: Number,
             // required: [true, 'El precio es obligatorio.']
         },
-        numParticipants: {
+        maxPlayers: {
             type: Number,
             // required: [true, 'El número máximo de participantes es obligatorio.']
         },

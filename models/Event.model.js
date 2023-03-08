@@ -17,7 +17,7 @@ const eventSchema = new Schema(
             type: String,
             required: [true, 'Starting time is required.']
         },
-        timeEnd: {
+        playMinTotal: {
             type: String,
             required: [true, 'Ending time is required.']
         },

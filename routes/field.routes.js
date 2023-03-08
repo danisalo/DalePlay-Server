@@ -48,10 +48,10 @@ router.get('/filter', (req, res, next) => {
 // Create Field
 router.post("/create", (req, res, next) => {
 
-    const { sport, type, hourlyPrice, numParticipants, imageUrl, club } = req.body
+    const { sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, club } = req.body
 
     Field
-        .create({ sport, type, hourlyPrice, numParticipants, imageUrl, club })
+        .create({ sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, club })
         .then(response => res.json(response))
         .catch(err => next(err))
 })
@@ -60,10 +60,10 @@ router.post("/create", (req, res, next) => {
 router.put("/edit/:field_id", (req, res, next) => {
 
     const { field_id } = req.params
-    const { sport, type, hourlyPrice, numParticipants, imageUrl } = req.body
+    const { sport, hourlyPrice, maxPlayers, imageUrl } = req.body
 
     Field
-        .findByIdAndUpdate(field_id, { sport, type, hourlyPrice, numParticipants, imageUrl })
+        .findByIdAndUpdate(field_id, { sport, hourlyPrice, maxPlayers, imageUrl, club })
         .then(response => res.json(response))
         .catch(err => next(err))
 })

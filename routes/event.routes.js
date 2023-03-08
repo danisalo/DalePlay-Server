@@ -31,7 +31,6 @@ router.post("/create", verifyToken, (req, res, next) => {
     const { name, timeStart, timeEnd, field, notes } = req.body
     const host = req.payload._id
 
-
     Event
         .create({ host, name, timeStart, timeEnd, field, notes })
         .then(event =>
