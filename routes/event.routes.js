@@ -28,11 +28,11 @@ router.get("/getOne/:event_id", (req, res, next) => {
 
 router.post("/create", verifyToken, (req, res, next) => {
 
-    const { name, timeStart, timeEnd, field, notes } = req.body
+    const { name, notes, timeSlot, cost, timeStart, playMinTotal, field } = req.body
     const host = req.payload._id
 
     Event
-        .create({ host, name, timeStart, timeEnd, field, notes })
+        .create({ host, name, notes, timeSlot, cost, timeStart, playMinTotal, field })
         .then(event =>
             Event.findByIdAndUpdate(event._id, { $addToSet: { players: host } }, { new: true })
                 .then(response => res.json(response))

@@ -14,9 +14,11 @@ const eventSchema = new Schema(
             type: String
         },
         timeSlot: [{
-            type: String
+            type: Array
         }],
-
+        cost: {
+            type: String
+        },
         timeStart: {
             type: String,
             required: [true, 'Starting time is required.']
