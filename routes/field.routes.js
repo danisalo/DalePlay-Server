@@ -48,6 +48,7 @@ router.get('/filter', (req, res, next) => {
 // Create Field
 router.post("/create", (req, res, next) => {
 
+    // const { club_id } = req.params
     const { sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner } = req.body
 
     Field
