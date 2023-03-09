@@ -13,6 +13,10 @@ const eventSchema = new Schema(
         notes: {
             type: String
         },
+        timeSlot: [{
+            type: String
+        }],
+
         timeStart: {
             type: String,
             required: [true, 'Starting time is required.']
