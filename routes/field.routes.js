@@ -21,7 +21,7 @@ router.get("/all", (req, res, next) => {
     Field
         .find()
         .populate({
-            path: 'club',
+            path: 'owner',
             select: '_id name location owner'
         })
         .populate({
@@ -48,10 +48,10 @@ router.get('/filter', (req, res, next) => {
 // Create Field
 router.post("/create", (req, res, next) => {
 
-    const { sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, club } = req.body
+    const { sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner } = req.body
 
     Field
-        .create({ sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, club })
+        .create({ sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner })
         .then(response => res.json(response))
         .catch(err => next(err))
 })
@@ -63,7 +63,7 @@ router.put("/edit/:field_id", (req, res, next) => {
     const { sport, hourlyPrice, maxPlayers, imageUrl } = req.body
 
     Field
-        .findByIdAndUpdate(field_id, { sport, hourlyPrice, maxPlayers, imageUrl, club })
+        .findByIdAndUpdate(field_id, { sport, hourlyPrice, maxPlayers, imageUrl, owner })
         .then(response => res.json(response))
         .catch(err => next(err))
 })
