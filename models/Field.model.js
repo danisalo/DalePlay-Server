@@ -22,7 +22,7 @@ const fieldSchema = new Schema(
             type: String,
             // required: [true, 'La imagen de la unidad deportiva es obligatoria.'],
         },
-        club: {
+        owner: {
             ref: 'Club',
             type: Schema.Types.ObjectId
         },
