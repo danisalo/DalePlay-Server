@@ -8,7 +8,7 @@ const eventSchema = new Schema(
         },
         name: {
             type: String,
-            required: [true, 'Event name required.'],
+            required: [true, 'El nombre del Evento es obligatorio.'],
         },
         notes: {
             type: String
@@ -21,11 +21,11 @@ const eventSchema = new Schema(
         },
         timeStart: {
             type: String,
-            required: [true, 'Starting time is required.']
+            required: [true, 'La hora de inicio es obligatoria.']
         },
         playMinTotal: {
             type: String,
-            required: [true, 'Ending time is required.']
+            required: [true, 'El tiempo de juego es obligatorio.']
         },
         players: [{
             type: Schema.Types.ObjectId,
