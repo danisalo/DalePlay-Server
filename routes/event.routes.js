@@ -3,6 +3,7 @@ const Event = require('../models/Event.model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { verifyToken } = require("../middlewares/verifyToken")
+const Field = require('../models/Field.model')
 
 router.get("/getAll", (req, res, next) => {
 
@@ -28,15 +29,16 @@ router.get("/getOne/:event_id", (req, res, next) => {
 
 router.post("/create", verifyToken, (req, res, next) => {
 
-    const { name, notes, timeSlot, cost, timeStart, playMinTotal, field } = req.body
+    const { name, notes, timeSlot, cost, timeStart, playMinTotal, field, day } = req.body
     const host = req.payload._id
-
     Event
-        .create({ host, name, notes, timeSlot, cost, timeStart, playMinTotal, field })
+        .create({ host, name, notes, timeSlot, cost, timeStart, playMinTotal, field, day })
         .then(event =>
-            Event.findByIdAndUpdate(event._id, { $addToSet: { players: host } }, { new: true })
+            Event
+                .findByIdAndUpdate(event._id, { $addToSet: { players: host } }, { new: true })
                 .then(response => res.json(response))
                 .catch(err => next(err)))
+
         .catch(err => next(err))
 
 

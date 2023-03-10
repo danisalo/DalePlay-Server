@@ -69,6 +69,20 @@ router.put("/edit/:field_id", (req, res, next) => {
         .catch(err => next(err))
 })
 
+
+
+router.put("/addevent/:field_id/:event_id", (req, res, next) => {
+
+    const { field_id, event_id } = req.params
+    console.log(field_id)
+    console.log(event_id)
+
+    Field
+        .findByIdAndUpdate(field_id, { $addToSet: { events: event_id } }, { new: true })
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
+
 // Delete Field
 router.post("/delete/:field_id", (req, res, next) => {
 

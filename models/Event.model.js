@@ -14,9 +14,12 @@ const eventSchema = new Schema(
             type: String
         },
         timeSlot: [{
-            type: Array
+            type: String
         }],
         cost: {
+            type: String
+        },
+        day: {
             type: String
         },
         timeStart: {
