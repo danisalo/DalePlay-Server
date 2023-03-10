@@ -5,22 +5,21 @@ const fieldSchema = new Schema(
         sport: {
             type: String,
             required: [true, 'El deporte es obligatorio.'],
-            enum: ['Futbol-5', 'Futbol-7', 'Futbol-11', 'Volleyball-6', 'Baloncesto-3', 'Baloncesto-5', 'Padel-2', 'Padel-4', 'Tennis-2', 'Tennis-4']
+            enum: ['Futbol 5v5', 'Futbol 7v7', 'Futbol 11v11', 'Volleyball 6v6', 'Baloncesto 3v3', 'Baloncesto 5v5', 'Padel 1v1', 'Padel 2v2', 'Tennis 1v1', 'Tennis 2v2']
         },
         timeSlots: [{
             type: String
         }],
         hourlyPrice: {
             type: Number,
-            // required: [true, 'El precio es obligatorio.']
+            required: [true, 'El precio por hora es obligatorio.']
         },
         maxPlayers: {
             type: Number,
-            // required: [true, 'El número máximo de participantes es obligatorio.']
         },
         imageUrl: {
             type: String,
-            // required: [true, 'La imagen de la unidad deportiva es obligatoria.'],
+            default: 'https://fastly.4sqi.net/img/general/600x600/61298733_eutk9aS2xcYaqQSD0T8XiNXDx1TPeMat2C-UKr0RFoc.jpg'
         },
         events: [{
             ref: 'Event',

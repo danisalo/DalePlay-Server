@@ -19,5 +19,7 @@ router.use("/fields", fieldsRoutes)
 const eventsRoutes = require("./event.routes")
 router.use("/events", eventsRoutes)
 
+const uploadRoutes = require("./upload.routes")
+router.use("/upload", uploadRoutes)
 
 module.exports = router
