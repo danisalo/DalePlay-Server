@@ -26,7 +26,7 @@ router.post('/login', (req, res, next) => {
     const { email, password } = req.body
 
     if (email === '' || password === '') {
-        res.status(400).json({ message: "Provide email and password." })
+        res.status(400).json({ message: "Hay campos sin completar" })
         return
     }
 
@@ -35,7 +35,7 @@ router.post('/login', (req, res, next) => {
         .then((foundUser) => {
 
             if (!foundUser) {
-                res.status(401).json({ message: "User not found." })
+                res.status(401).json({ message: "Usuario inexistente" })
                 return
             }
 
@@ -44,7 +44,7 @@ router.post('/login', (req, res, next) => {
                 res.status(200).json({ authToken })
             }
             else {
-                res.status(401).json({ message: "Incorrect password" })
+                res.status(401).json({ message: "Contraseña equivocada" })
             }
         })
         .catch(err => next(err))
