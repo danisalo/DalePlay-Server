@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { verifyToken } = require("../middlewares/verifyToken")
 const Field = require('../models/Field.model')
+const User = require('../models/User.model')
+
 
 router.get("/getAll", (req, res, next) => {
 
@@ -23,7 +25,17 @@ router.get("/getOne/:event_id", (req, res, next) => {
         .then(response => setTimeout(() => res.json(response), 1000))
         .catch(err => next(err))
 
+})
 
+router.get("/getByUser/:user_id", (req, res, next) => {
+
+    const { user_id } = req.params
+
+    Event
+        .find({ players: user_id })
+        .populate('players')
+        .then(data => res.json(data))
+        .catch(err => next(err))
 })
 
 
@@ -36,11 +48,9 @@ router.post("/create", verifyToken, (req, res, next) => {
         .then(event =>
             Event
                 .findByIdAndUpdate(event._id, { $addToSet: { players: host } }, { new: true })
-                .then(response => res.json(response))
+                .then(data => res.json(data))
                 .catch(err => next(err)))
-
         .catch(err => next(err))
-
 
 })
 

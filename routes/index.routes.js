@@ -5,7 +5,7 @@ router.get("/", (req, res, next) => {
 })
 
 const profileRoutes = require("./profile.routes")
-router.use("/", profileRoutes)
+router.use("/profile", profileRoutes)
 
 const authRoutes = require("./auth.routes")
 router.use("/auth", authRoutes)

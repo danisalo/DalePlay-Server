@@ -20,7 +20,8 @@ const eventSchema = new Schema(
             type: String
         },
         day: {
-            type: String
+            type: Date,
+            required: true
         },
         timeStart: {
             type: String,
