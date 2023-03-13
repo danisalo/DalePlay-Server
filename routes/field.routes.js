@@ -21,12 +21,8 @@ router.get("/all", (req, res, next) => {
     Field
         .find()
         .populate({
-            path: 'owner',
-            select: '_id name location owner'
-        })
-        .populate({
             path: 'events',
-            select: '_id host name timeStart timeEnd players'
+            select: '_id host name timeStart players'
         })
         .sort({ sport: 1 })
         .then(response => setTimeout(() => res.json(response), 1000))
@@ -39,6 +35,7 @@ router.get('/filter', (req, res, next) => {
 
     Field
         .find({ sport })
+        .populate('events')
         .then(fields => {
             res.json(fields)
         })

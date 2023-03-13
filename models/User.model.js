@@ -15,7 +15,7 @@ const userSchema = new Schema(
     },
     username: {
       type: String,
-      required: [true, 'El username es obligatorio.']
+      required: [true, 'El nombre de usuario es obligatorio.']
     },
     email: {
       type: String,
