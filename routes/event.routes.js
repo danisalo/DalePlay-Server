@@ -32,7 +32,7 @@ router.get("/getByUser/:user_id", (req, res, next) => {
     const { user_id } = req.params
 
     Event
-        .find({ players: user_id })
+        .find({ players: user_id, day: { $gte: new Date() } })
         .populate('players')
         .then(data => res.json(data))
         .catch(err => next(err))

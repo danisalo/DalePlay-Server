@@ -9,9 +9,7 @@ router.get("/getone/:user_id", (req, res, next) => {
 
     User
         .findById(user_id)
-        .then(response => {
-            res.json(response)
-        })
+        .then(response => res.json(response))
         .catch((err) => next(err))
 
 })

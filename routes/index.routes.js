@@ -4,8 +4,7 @@ router.get("/", (req, res, next) => {
   res.json("All good in here")
 })
 
-const profileRoutes = require("./profile.routes")
-router.use("/profile", profileRoutes)
+
 
 const authRoutes = require("./auth.routes")
 router.use("/auth", authRoutes)
@@ -21,5 +20,8 @@ router.use("/events", eventsRoutes)
 
 const uploadRoutes = require("./upload.routes")
 router.use("/upload", uploadRoutes)
+
+const profileRoutes = require("./profile.routes")
+router.use("/profile", profileRoutes)
 
 module.exports = router
