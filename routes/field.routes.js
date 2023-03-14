@@ -74,8 +74,18 @@ router.put("/addevent/:field_id/:event_id", (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.put("/addmax/:field_id/:max", (req, res, next) => {
 
-router.delete("/delete/:field_id", (req, res, next) => {
+    const { field_id, max } = req.params
+
+    Field
+        .findByIdAndUpdate(field_id, { $set: { maxPlayers: max } }, { new: true })
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
+
+// Delete Field
+router.post("/delete/:field_id", (req, res, next) => {
 
     const { field_id } = req.params
 
