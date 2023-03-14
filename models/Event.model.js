@@ -23,6 +23,9 @@ const eventSchema = new Schema(
             type: Date,
             required: true
         },
+        dayText: {
+            type: String
+        },
         timeStart: {
             type: String,
             required: [true, 'La hora de inicio es obligatoria.']

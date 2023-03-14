@@ -41,10 +41,10 @@ router.get("/getByUser/:user_id", (req, res, next) => {
 
 router.post("/create", verifyToken, (req, res, next) => {
 
-    const { name, notes, timeSlot, cost, timeStart, playMinTotal, field, day } = req.body
+    const { name, notes, timeSlot, cost, timeStart, playMinTotal, field, day, dayText } = req.body
     const host = req.payload._id
     Event
-        .create({ host, name, notes, timeSlot, cost, timeStart, playMinTotal, field, day })
+        .create({ host, name, notes, timeSlot, cost, timeStart, playMinTotal, field, day, dayText })
         .then(event =>
             Event
                 .findByIdAndUpdate(event._id, { $addToSet: { players: host } }, { new: true })
