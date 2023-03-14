@@ -1,6 +1,5 @@
 const router = require("express").Router()
 const Club = require('../models/Club.model')
-const Field = require('../models/Field.model')
 
 
 router.post("/create", (req, res, next) => {
@@ -56,5 +55,15 @@ router.put("/edit/:club_id", (req, res, next) => {
         .then(response => res.json(response))
         .catch(err => next(err))
 })
+
+router.delete("/delete/:club_id", (req, res, next) => {
+    const { club_id } = req.params
+
+    Club
+        .findByIdAndDelete(club_id)
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
+
 
 module.exports = router

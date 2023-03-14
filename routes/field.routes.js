@@ -1,10 +1,8 @@
 const router = require("express").Router()
 
 const Field = require('../models/Field.model')
-const Club = require('../models/Club.model')
-const Event = require('../models/Event.model')
 
-// Get One Field
+
 router.get("/details/:field_id", (req, res, next) => {
 
     const { field_id } = req.params
@@ -15,7 +13,6 @@ router.get("/details/:field_id", (req, res, next) => {
         .catch(err => next(err))
 })
 
-// Get All Fields
 router.get("/all", (req, res, next) => {
 
     Field
@@ -29,7 +26,6 @@ router.get("/all", (req, res, next) => {
         .catch(err => next(err))
 })
 
-// Filter Field by Sport
 router.get('/filter', (req, res, next) => {
     const { sport } = req.query
 
@@ -42,10 +38,9 @@ router.get('/filter', (req, res, next) => {
         .catch(err => next(err))
 })
 
-// Create Field
+
 router.post("/create", (req, res, next) => {
 
-    // const { club_id } = req.params
     const { sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner } = req.body
 
     Field
@@ -54,7 +49,7 @@ router.post("/create", (req, res, next) => {
         .catch(err => next(err))
 })
 
-// Edit Field
+
 router.put("/edit/:field_id", (req, res, next) => {
 
     const { field_id } = req.params
@@ -65,7 +60,6 @@ router.put("/edit/:field_id", (req, res, next) => {
         .then(response => res.json(response))
         .catch(err => next(err))
 })
-
 
 
 router.put("/addevent/:field_id/:event_id", (req, res, next) => {
@@ -80,8 +74,8 @@ router.put("/addevent/:field_id/:event_id", (req, res, next) => {
         .catch(err => next(err))
 })
 
-// Delete Field
-router.post("/delete/:field_id", (req, res, next) => {
+
+router.delete("/delete/:field_id", (req, res, next) => {
 
     const { field_id } = req.params
 
