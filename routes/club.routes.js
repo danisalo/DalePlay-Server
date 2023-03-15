@@ -43,6 +43,16 @@ router.get("/getOne/:club_id", (req, res, next) => {
         .catch((err) => next(err))
 })
 
+router.get("/getbyfield/:field_id", (req, res, next) => {
+
+    const { field_id } = req.params
+
+    Club
+        .find({ fields: field_id })
+        .then(data => res.json(data))
+        .catch(err => next(err))
+})
+
 router.put("/edit/:club_id", (req, res, next) => {
 
     const { club_id } = req.params
