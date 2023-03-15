@@ -7,11 +7,11 @@ const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      default: ''
+      required: [true, 'El nombre del usuario es obligatorio.']
     },
     lastName: {
       type: String,
-      default: ''
+      required: [true, 'El apellido del usuario es obligatorio.']
     },
     username: {
       type: String,
@@ -35,7 +35,7 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      enum: ['USER', 'OWNER', 'ADMIN'],
+      enum: ['USER', 'ADMIN'],
       default: 'USER'
     }
   },
