@@ -4,13 +4,12 @@ const Club = require('../models/Club.model')
 
 router.post("/create", (req, res, next) => {
 
-    const { name, description, location, imageUrl } = req.body
+    const { name, description, address, imageUrl } = req.body
 
     Club
-        .create({ name, description, location, imageUrl })
+        .create({ name, description, address, imageUrl })
         .then(response => res.json(response))
         .catch(err => next(err))
-
 })
 
 router.get("/getAll", (req, res, next) => {
@@ -48,10 +47,10 @@ router.get("/getOne/:club_id", (req, res, next) => {
 router.put("/edit/:club_id", (req, res, next) => {
 
     const { club_id } = req.params
-    const { name, description, location, imageUrl } = req.body
+    const { name, description, address, imageUrl } = req.body
 
     Club
-        .findByIdAndUpdate(club_id, { name, description, location, imageUrl })
+        .findByIdAndUpdate(club_id, { name, description, address, imageUrl })
         .then(response => res.json(response))
         .catch(err => next(err))
 })

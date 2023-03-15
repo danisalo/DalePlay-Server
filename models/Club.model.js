@@ -9,15 +9,13 @@ const clubSchema = new Schema(
         description: {
             type: String,
         },
-        location: {
-            type: {
-                type: String
-            },
-            coordinates: [Number]
+        address: {
+            type: String,
+            required: [true, 'La ubicación del Club es obligatoria.'],
         },
         imageUrl: {
             type: String,
-            required: [true, 'La imagen de portada es obligatoria.'],
+            required: [true, 'La imagen de portada del Club es obligatoria.'],
             default: 'https://fastly.4sqi.net/img/general/600x600/61298733_eutk9aS2xcYaqQSD0T8XiNXDx1TPeMat2C-UKr0RFoc.jpg'
         },
         fields: [{
@@ -34,6 +32,5 @@ const clubSchema = new Schema(
     }
 )
 
-clubSchema.index({ location: '2dsphere' })
 
 module.exports = model("Club", clubSchema)
