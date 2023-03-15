@@ -49,11 +49,6 @@ router.post("/create", (req, res, next) => {
         .create({ sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner })
         .then(response => {
             res.json(response)
-            // const fieldId = response._id
-            // Club
-            //     .findByIdAndUpdate(owner, { $addToSet: { fields: fieldId } }, { new: true })
-            //     .then(response => res.json(response))
-            //     .catch(err => next(err))
         })
         .catch(err => next(err))
 })
@@ -74,8 +69,6 @@ router.put("/edit/:field_id", (req, res, next) => {
 router.put("/addevent/:field_id/:event_id", (req, res, next) => {
 
     const { field_id, event_id } = req.params
-    console.log(field_id)
-    console.log(event_id)
 
     Field
         .findByIdAndUpdate(field_id, { $addToSet: { events: event_id } }, { new: true })

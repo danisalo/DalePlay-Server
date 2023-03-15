@@ -38,7 +38,6 @@ router.get("/getOne/:club_id", (req, res, next) => {
                 ...club._doc,
                 fields: fields,
             }
-            console.log(clubWithFields)
             res.json(clubWithFields)
         })
         .catch((err) => next(err))
