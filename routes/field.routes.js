@@ -1,5 +1,6 @@
 const router = require("express").Router()
 
+const Club = require("../models/Club.model")
 const Field = require('../models/Field.model')
 
 
@@ -33,7 +34,8 @@ router.get('/filter', (req, res, next) => {
         .find({ sport })
         .populate('events')
         .then(fields => {
-            res.json(fields)
+            const eventsArr = fields.map(obj => obj.events)
+            res.json(eventsArr.flat(1))
         })
         .catch(err => next(err))
 })
@@ -45,7 +47,13 @@ router.post("/create", (req, res, next) => {
 
     Field
         .create({ sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner })
-        .then(response => res.json(response))
+        .then(response => {
+            const fieldId = response._id
+            Club
+                .findByIdAndUpdate(owner, { $addToSet: { fields: fieldId } }, { new: true })
+                .then(response => res.json(response))
+                .catch(err => next(err))
+        })
         .catch(err => next(err))
 })
 
