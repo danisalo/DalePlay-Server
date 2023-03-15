@@ -12,10 +12,10 @@ router.get('/verify', verifyToken, (req, res, next) => {
 
 router.post('/register', (req, res, next) => {
 
-    const { email, password, username, imageUrl } = req.body
+    const { firstName, lastName, email, password, username, imageUrl } = req.body
 
     User
-        .create({ email, password, username, imageUrl })
+        .create({ firstName, lastName, email, password, username, imageUrl })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
 })
