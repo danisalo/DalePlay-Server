@@ -55,6 +55,16 @@ router.put("/edit/:club_id", (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.put("/addtoclub/:club_id/:field_id", (req, res, next) => {
+
+    const { club_id, field_id } = req.params
+
+
+    Club
+        .findByIdAndUpdate(club_id, { $addToSet: { fields: field_id } }, { new: true })
+        .then(response => res.json(response))
+        .catch(err => next(err))
+})
 router.delete("/delete/:club_id", (req, res, next) => {
     const { club_id } = req.params
 

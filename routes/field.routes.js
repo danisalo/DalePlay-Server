@@ -48,11 +48,12 @@ router.post("/create", (req, res, next) => {
     Field
         .create({ sport, timeSlots, hourlyPrice, maxPlayers, imageUrl, owner })
         .then(response => {
-            const fieldId = response._id
-            Club
-                .findByIdAndUpdate(owner, { $addToSet: { fields: fieldId } }, { new: true })
-                .then(response => res.json(response))
-                .catch(err => next(err))
+            res.json(response)
+            // const fieldId = response._id
+            // Club
+            //     .findByIdAndUpdate(owner, { $addToSet: { fields: fieldId } }, { new: true })
+            //     .then(response => res.json(response))
+            //     .catch(err => next(err))
         })
         .catch(err => next(err))
 })
