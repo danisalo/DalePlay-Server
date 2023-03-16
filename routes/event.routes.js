@@ -65,8 +65,6 @@ router.put("/edit/:event_id", (req, res, next) => {
         .catch(err => next(err))
 })
 
-// ADD participant to event
-
 router.put("/join/:event_id", verifyToken, (req, res, next) => {
 
     const player = req.payload._id
