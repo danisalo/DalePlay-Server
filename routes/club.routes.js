@@ -1,16 +1,11 @@
 const router = require("express").Router()
 const Club = require('../models/Club.model')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const { verifyToken } = require("../middlewares/verifyToken")
 
 
-router.post("/create", (req, res, next) => {
 
-    const { name, description, address, imageUrl } = req.body
-
-    Club
-        .create({ name, description, address, imageUrl })
-        .then(response => res.json(response))
-        .catch(err => next(err))
-})
 
 router.get("/getAll", (req, res, next) => {
 
@@ -50,6 +45,17 @@ router.get("/getbyfield/:field_id", (req, res, next) => {
     Club
         .find({ fields: field_id })
         .then(data => res.json(data))
+        .catch(err => next(err))
+})
+
+router.post("/create", verifyToken, (req, res, next) => {
+
+    const { name, description, address, imageUrl } = req.body
+    const owner = req.payload._id
+
+    Club
+        .create({ name, description, address, imageUrl, owner })
+        .then(response => res.json(response))
         .catch(err => next(err))
 })
 
