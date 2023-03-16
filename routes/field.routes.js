@@ -32,7 +32,7 @@ router.get('/filter', (req, res, next) => {
 
     Field
         .find({ sport })
-        .populate('events')
+        .populate({ path: 'events', sort: 1 })
         .then(fields => {
             const eventsArr = fields.map(obj => obj.events)
             res.json(eventsArr.flat(1))
