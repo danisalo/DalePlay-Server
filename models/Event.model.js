@@ -3,8 +3,8 @@ const { Schema, model } = require("mongoose")
 const eventSchema = new Schema(
     {
         host: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'User',
+            type: Schema.Types.ObjectId
         },
         name: {
             type: String,
@@ -32,7 +32,7 @@ const eventSchema = new Schema(
         },
         playMinTotal: {
             type: String,
-            required: [true, 'El tiempo de juego es obligatorio.']
+            required: [true, 'El Horario es obligatorio.']
         },
         players: [{
             type: Schema.Types.ObjectId,
@@ -41,11 +41,7 @@ const eventSchema = new Schema(
         field: {
             ref: 'Field',
             type: Schema.Types.ObjectId
-        },
-        comments: [{
-            ref: 'Chat',
-            type: Schema.Types.ObjectId
-        }]
+        }
     },
     {
         timestamps: true

@@ -15,7 +15,7 @@ const fieldSchema = new Schema(
             required: [true, 'El precio por hora es obligatorio.']
         },
         maxPlayers: {
-            type: Number,
+            type: Number
         },
         imageUrl: {
             type: String,
