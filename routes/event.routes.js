@@ -22,6 +22,7 @@ router.get("/getOne/:event_id", (req, res, next) => {
 
     Event
         .findById(event_id)
+        .populate('players')
         .then(response => setTimeout(() => res.json(response), 1000))
         .catch(err => next(err))
 
