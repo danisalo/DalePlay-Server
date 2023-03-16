@@ -57,10 +57,10 @@ router.post("/create", (req, res, next) => {
 router.put("/edit/:field_id", (req, res, next) => {
 
     const { field_id } = req.params
-    const { sport, hourlyPrice, maxPlayers, imageUrl } = req.body
+    const { sport, hourlyPrice, imageUrl } = req.body
 
     Field
-        .findByIdAndUpdate(field_id, { sport, hourlyPrice, maxPlayers, imageUrl, owner })
+        .findByIdAndUpdate(field_id, { sport, hourlyPrice, imageUrl })
         .then(response => res.json(response))
         .catch(err => next(err))
 })
